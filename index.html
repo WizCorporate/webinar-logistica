@@ -1,0 +1,670 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Webinar HMM Platinum | Wiz Corporate</title>
+<meta name="description" content="Webinar gratuito da Wiz Corporate, 24/11 às 10h: avaria grossa, garantias exigidas e o papel do seguro de transporte no caso do incêndio a bordo do HMM PLATINUM.">
+<meta property="og:title" content="HMM PLATINUM: quando um incêndio em alto-mar muda o destino de uma carga">
+<meta property="og:description" content="Webinar gratuito, 24/11 às 10h, ao vivo no YouTube. Entenda a avaria grossa, as garantias exigidas e os impactos para empresas do transporte marítimo.">
+<!-- EDITAR ao publicar: as redes sociais exigem o endereço completo da imagem, ex.: https://seudominio.com.br/webinar/assets/fundo-navio-1280.jpg -->
+<meta property="og:image" content="assets/fundo-navio-1280.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#04191D">
+<link rel="preload" href="assets/fundo-navio-2560.jpg" as="image" media="(min-width: 961px)">
+<link rel="preload" href="assets/fundo-navio-1280.jpg" as="image" media="(max-width: 960px)">
+<style>
+/* Layout: uma única dobra fotográfica. Desktop: título + texto + informações à esquerda (navio da foto abaixo), formulário em vidro à direita.
+   Celular: 1ª dobra (.dobra-m) com título, texto, navio em destaque, informações e botão; depois só o formulário. Visual escuro único. */
+@font-face { font-family: "Proxima Nova"; src: url("assets/fonts/ProximaNova-Light.woff") format("woff"); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: "Proxima Nova"; src: url("assets/fonts/ProximaNova-Regular.woff") format("woff"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Proxima Nova"; src: url("assets/fonts/ProximaNova-Semibold.woff") format("woff"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Proxima Nova"; src: url("assets/fonts/ProximaNova-Bold.woff") format("woff"); font-weight: 700; font-style: normal; font-display: swap; }
+
+:root {
+  /* Marca (Design System Wiz Corporate) */
+  --laranja-wiz: #EC681D;
+  --laranja-vivo: #FF8200;
+  --grafite: #2E2E30;
+  --nevoa: #F2F2F2;
+  --branco: #FFFFFF;
+  /* Mar (tirado da fotografia) */
+  --mar-900: #04191D;
+  --mar-800: #062A30;
+  --vidro: rgba(6, 36, 42, 0.58);
+  --vidro-claro: rgba(255, 255, 255, 0.07);
+  --borda-vidro: rgba(255, 255, 255, 0.16);
+  --texto: var(--nevoa);
+  --texto-sec: rgba(242, 242, 242, 0.78);
+  --erro: #FFB4A0;
+
+  --sans: "Proxima Nova", "Helvetica Neue", Arial, sans-serif;
+  --radius-shape: 28px;   /* proporção do shape proprietário (45px na arte de 1080) */
+  --radius-pill: 9999px;
+  --gutter: max(20px, 5vw);
+  --lado-esq: max(var(--gutter), env(safe-area-inset-left, 0px));
+  --lado-dir: max(var(--gutter), env(safe-area-inset-right, 0px));
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0;
+  background: var(--mar-900);
+  color: var(--texto);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--laranja-vivo); outline-offset: 3px; }
+
+.wrap {
+  width: 100%;
+  max-width: 1240px;
+  margin-inline: auto;
+  padding-left: var(--lado-esq);
+  padding-right: var(--lado-dir);
+}
+
+.rotulo { font-size: 13px; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; line-height: 1.2; }
+
+/* ---------- DOBRA ---------- */
+.hero {
+  position: relative;
+  isolation: isolate;
+  min-height: min(100svh, 980px);
+  display: flex;
+  flex-direction: column;
+  background-color: var(--mar-800);
+  overflow: hidden;
+}
+/* Foto ampliada (caixa mais alta, ancorada no topo) para o navio passar abaixo do bloco de texto */
+.hero::before {
+  content: ""; position: absolute; z-index: -3; left: 0; right: 0; top: 0; height: 132%;
+  background: url("assets/fundo-navio-2560.jpg") center top / cover no-repeat;
+}
+.hero::after {
+  content: ""; position: absolute; z-index: -2; inset: 0;
+  background:
+    linear-gradient(180deg, rgba(4, 25, 29, 0.5) 0%, rgba(4, 25, 29, 0) 22%, rgba(4, 25, 29, 0) 72%, var(--mar-900) 100%),
+    linear-gradient(90deg, rgba(4, 25, 29, 0.5) 0%, rgba(4, 25, 29, 0.1) 55%, rgba(4, 25, 29, 0.25) 100%);
+}
+/* Fio branco fino em triângulo (grafismo da marca: proteção) */
+.hero .fio {
+  position: absolute; z-index: -1; pointer-events: none;
+  width: min(62vw, 820px); aspect-ratio: 1;
+  right: -14vw; top: -6vw;
+  transform: rotate(-12deg);
+  opacity: 0.32;
+}
+.hero .fio path { fill: none; stroke: var(--branco); stroke-width: 1.4; vector-effect: non-scaling-stroke; }
+
+/* Alinhamento óptico do topo: o selo é centralizado na altura da escrita "Corporate"
+   (no SVG do logo, o "C" vai de 0 a 201 de 413,54 → centro a 24,3% da altura), e não no logo inteiro,
+   cuja perna do Z desce até a base. */
+.topo {
+  --logo-h: clamp(25px, 3.42vw, 44px);
+  --selo-h: 36px;
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;
+  padding-block: calc(32px + env(safe-area-inset-top, 0px)) 0;
+}
+.topo .logo { width: auto; height: var(--logo-h); flex: none; }
+.topo .selo {
+  height: var(--selo-h); padding-block: 0 !important;
+  margin-top: calc(var(--logo-h) * 0.243 - var(--selo-h) / 2);
+  display: inline-flex; align-items: center; gap: 10px; white-space: nowrap;
+  padding: 9px 16px; border-radius: var(--radius-pill);
+  background: var(--vidro-claro); border: 1px solid var(--borda-vidro);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+}
+.topo .selo::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--laranja-vivo); box-shadow: 0 0 0 4px rgba(255, 130, 0, 0.22); flex: none; }
+
+.hero-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.85fr);
+  grid-template-areas: "texto form";
+  align-content: center;
+  column-gap: clamp(32px, 5vw, 80px);
+  padding-block: clamp(28px, 5vh, 64px) clamp(32px, 5vh, 64px);
+}
+/* texto um pouco acima do centro: o navio da foto aparece abaixo dele */
+.hero-texto { grid-area: texto; align-self: center; min-width: 0; margin-bottom: clamp(48px, 12vh, 140px); }
+.cartao { grid-area: form; align-self: center; }
+.hero-navio { display: none; }
+
+h1.titulo {
+  margin: 0;
+  font-size: clamp(2.2rem, 4.1vw, 4rem);
+  line-height: 1.04;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--branco);
+  text-wrap: balance;
+  text-shadow: 0 2px 28px rgba(0, 20, 24, 0.35);
+}
+h1.titulo .leve { font-weight: 300; display: block; }
+/* grifo: mesmo tamanho do restante do título, uma tarja por linha */
+h1.titulo .tarja-m {
+  display: inline; font-weight: 700; font-size: 1em; line-height: 1.3;
+  background: var(--laranja-wiz); color: var(--branco); text-shadow: none;
+  padding: 0.02em 0.22em;
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
+}
+
+.subtitulo {
+  margin: 26px 0 0;
+  max-width: 34em;
+  font-size: clamp(1.15rem, 1.65vw, 1.5rem);
+  font-weight: 300; line-height: 1.45;
+  text-shadow: 0 1px 12px rgba(0, 20, 24, 0.6);
+}
+.subtitulo strong { font-weight: 700; }
+/* nome do navio em destaque */
+.subtitulo .navio { font-weight: 700; color: var(--laranja-vivo); letter-spacing: 0.04em; white-space: nowrap; }
+
+.info {
+  list-style: none; margin: 30px 0 0; padding: 0;
+  display: flex; flex-wrap: wrap; gap: 10px;
+}
+.info li {
+  display: flex; flex-direction: column; gap: 2px;
+  padding: 12px 18px; border-radius: 16px;
+  background: var(--vidro-claro); border: 1px solid var(--borda-vidro);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+}
+.info li small { font-size: 11px; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: var(--texto-sec); }
+.info li b { font-size: 17px; font-weight: 700; color: var(--branco); line-height: 1.25; }
+
+/* ---------- CARTÃO (formulário e confirmação) ---------- */
+.cartao {
+  position: relative;
+  background: var(--vidro);
+  border: 1px solid var(--borda-vidro);
+  border-radius: var(--radius-shape);
+  padding: clamp(24px, 2.6vw, 36px);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2); backdrop-filter: blur(20px) saturate(1.2);
+  box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.55);
+  scroll-margin-top: calc(16px + env(safe-area-inset-top, 0px));
+}
+.cartao h2 {
+  margin: 0; font-size: clamp(1.5rem, 2vw, 1.85rem); line-height: 1.1; font-weight: 300;
+  text-transform: uppercase; color: var(--branco);
+}
+.cartao h2 b { font-weight: 700; display: block; }
+.cartao .apoio { margin: 10px 0 22px; color: var(--texto-sec); font-size: 15px; }
+
+/* ---------- FORMULÁRIO DA RD STATION ----------
+   A RD injeta o próprio CSS (fundo cinza, Arial, botão verde) com seletores de id;
+   estas regras vestem o formulário com o visual da página. */
+.rd-form { min-height: 380px; } /* reserva espaço enquanto o script da RD carrega */
+.rd-form, .rd-form * { font-family: var(--sans) !important; }
+.rd-form section, .rd-form .bricks--section, .rd-form .bricks--row, .rd-form .bricks--column, .rd-form .bricks--column > div {
+  background: transparent !important; border: 0 !important; padding: 0 !important; min-height: 0 !important; margin: 0 !important;
+}
+/* título e subtítulo de exemplo do editor da RD: o cartão já tem título */
+.rd-form .rd-text:has(h1), .rd-form .rd-text:has(h2) { display: none !important; }
+.rd-form .rd-text h1, .rd-form .rd-text h2 { display: none !important; }
+.rd-form [id^="rd-form-"] { max-width: none !important; width: 100% !important; margin: 0 !important; }
+#inscricao .rd-form [id^="rd-form-"] { padding: 0 !important; }
+#inscricao .rd-form .bricks-form__fieldset { margin: 0 !important; padding: 0 !important; border: 0 !important; }
+.rd-form .bricks-form__field { margin: 0 0 12px !important; padding: 0 !important; width: 100% !important; }
+/* rótulos ficam só para leitores de tela: os campos da RD já trazem o nome no placeholder */
+.rd-form .bricks-form__label {
+  position: absolute !important; width: 1px !important; height: 1px !important; overflow: hidden !important;
+  clip: rect(0 0 0 0) !important; white-space: nowrap !important; margin: -1px !important; padding: 0 !important;
+}
+/* telefone: seletor de país + número lado a lado */
+.rd-form .phone-input-group { display: flex !important; gap: 8px; align-items: stretch; }
+.rd-form .phone-input-group > input, .rd-form .phone-input-group input.bricks-form__input { flex: 1 1 auto; border-radius: 12px !important; }
+#inscricao .rd-form .phone-input-group input.bricks-form__input { border-radius: 12px !important; }
+#inscricao .rd-form .rd-button { width: 100% !important; max-width: none !important; margin-left: 0 !important; margin-right: 0 !important; align-self: stretch !important; }
+.rd-form .bricks-form__submit, .rd-form .bricks-form__submit > * { width: 100% !important; max-width: none !important; margin-left: 0 !important; margin-right: 0 !important; padding-left: 0 !important; padding-right: 0 !important; }
+.rd-form .phone-country.select2-container { flex: 0 0 76px !important; width: 76px !important; padding: 0 !important; display: flex !important; }
+.rd-form .phone-country .select2-choice {
+  display: flex !important; align-items: center; gap: 6px; width: 100% !important; height: auto !important;
+  padding: 0 12px !important; background: transparent !important; border: 0 !important; box-shadow: none !important; line-height: 1 !important;
+}
+.rd-form .phone-country .select2-chosen { margin: 0 !important; display: flex; align-items: center; }
+.rd-form .phone-country .select2-arrow { position: static !important; background: transparent !important; border: 0 !important; width: auto !important; }
+.rd-form .phone-country .select2-arrow b { background: none !important; width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 6px solid var(--nevoa); display: block; }
+.rd-form input.bricks-form__input, .rd-form select.bricks-form__input, .rd-form .phone-country {
+  width: 100% !important; min-width: 0 !important; height: auto !important; min-height: 50px !important;
+  font-size: 16px !important; color: var(--branco) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.28) !important; border-radius: 12px !important;
+  padding: 13px 14px !important; box-shadow: none !important;
+  -webkit-appearance: none; appearance: none;
+}
+.rd-form input.bricks-form__input::placeholder { color: rgba(242, 242, 242, 0.5) !important; }
+.rd-form input.bricks-form__input:focus { outline: none !important; border-color: var(--laranja-vivo) !important; background: rgba(255, 255, 255, 0.12) !important; box-shadow: 0 0 0 3px rgba(255, 130, 0, 0.25) !important; }
+.rd-form input.bricks-form__input:-webkit-autofill { -webkit-text-fill-color: var(--branco); -webkit-box-shadow: 0 0 0 40px #12383E inset !important; caret-color: var(--branco); }
+.rd-form input.error { border-color: var(--erro) !important; }
+.rd-form label.error { display: block; color: var(--erro) !important; font-size: 13px !important; padding: 4px 0 0 2px !important; }
+.rd-form .rd-button, .rd-form button[type="submit"] {
+  display: inline-flex !important; align-items: center; justify-content: center;
+  width: 100% !important; min-height: 56px !important; height: auto !important; margin: 6px 0 0 !important; padding: 16px 24px !important;
+  font-size: 19px !important; font-weight: 700 !important; letter-spacing: 0.04em !important; text-transform: uppercase !important; line-height: 1.2 !important; white-space: nowrap;
+  color: var(--branco) !important; background: var(--laranja-wiz) !important;
+  border: 0 !important; border-radius: var(--radius-pill) !important; box-shadow: none !important;
+  cursor: pointer; touch-action: manipulation; transition: background-color .15s;
+}
+.rd-form .rd-button:hover, .rd-form button[type="submit"]:hover { background: #D85A12 !important; }
+/* texto de privacidade da RD */
+.rd-form .rd-text, .rd-form .rd-text * { color: var(--texto-sec) !important; font-size: 12.5px !important; line-height: 1.45 !important; text-align: left !important; }
+.rd-form .rd-text { margin: 12px 0 0 !important; max-width: none !important; }
+.rd-form .bricks-form__static, .rd-form .bricks-form__static * { color: var(--texto-sec) !important; font-size: 12.5px !important; }
+
+.botao {
+  display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+  width: 100%; min-height: 56px;
+  margin-top: 6px;
+  padding: 16px 24px;
+  font: inherit; font-size: 19px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; white-space: nowrap;
+  color: var(--branco);   /* branco bold 19px+ sobre laranja (regra do DS para texto grande/bold) */
+  background: var(--laranja-wiz);
+  border: 0; border-radius: var(--radius-pill);
+  cursor: pointer; text-decoration: none;
+  transition: background-color .15s, transform .15s;
+  touch-action: manipulation;
+}
+.botao:hover { background: #D85A12; } /* laranja escurecido: o DS não usa laranja-vivo atrás de texto branco */
+.botao:active { transform: translateY(1px); }
+.botao[disabled] { opacity: .7; cursor: progress; }
+.botao svg { width: 18px; height: 18px; flex: none; }
+.botao svg path { fill: currentColor; }
+
+.botao-sec {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 48px; padding: 12px 18px;
+  font: inherit; font-size: 15px; font-weight: 700; color: var(--branco); text-decoration: none;
+  background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.35); border-radius: var(--radius-pill);
+  cursor: pointer; touch-action: manipulation;
+}
+.botao-sec:hover { border-color: var(--branco); background: rgba(255, 255, 255, 0.12); }
+
+/* Confirmação */
+.sucesso { outline: none; }
+.sucesso .marca { width: 44px; height: 44px; margin-bottom: 16px; }
+.sucesso .marca path { fill: var(--laranja-wiz); }
+.sucesso > p { color: var(--texto-sec); margin: 12px 0 0; font-size: 16px; }
+.sucesso > p strong { color: var(--branco); }
+.transmissao {
+  margin-top: 22px; padding: 18px; border-radius: 18px;
+  background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.12);
+}
+.transmissao .rotulo { font-size: 11px; letter-spacing: 0.24em; color: var(--texto-sec); margin: 0 0 10px; }
+.transmissao .botao { margin-top: 0; }
+.transmissao .link-texto {
+  display: block; margin-top: 10px; font-size: 13px; color: var(--texto-sec);
+  overflow-wrap: anywhere; user-select: all; -webkit-user-select: all;
+}
+.transmissao .em-breve { margin: 0; font-size: 15px; line-height: 1.45; color: var(--texto); }
+.transmissao .em-breve b { color: var(--branco); }
+.agenda { margin-top: 18px; }
+.agenda .rotulo { font-size: 11px; letter-spacing: 0.24em; color: var(--texto-sec); margin: 0 0 10px; }
+.agenda-botoes { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.outra-inscricao {
+  margin-top: 18px; padding: 8px 0; background: none; border: 0; cursor: pointer;
+  font: inherit; font-size: 14px; color: var(--texto-sec); text-decoration: underline; text-underline-offset: 3px;
+}
+
+/* ---------- RESPONSIVO ---------- */
+@media (max-width: 1200px) {
+  .cartao .botao svg { display: none; }
+  .cartao .botao { letter-spacing: 0.02em; padding-inline: 16px; }
+  .linha2 { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ============ CELULAR E TABLET (até 960px) ============
+   1ª dobra (.dobra-m): logo, título, texto, navio em destaque, data/horário/local e botão.
+   Depois do primeiro scroll: só o formulário completo. */
+.dobra-m { display: none; }
+
+@media (max-width: 960px) {
+  /* esconde a composição de desktop */
+  .hero .topo, .hero-texto, .hero-navio, .hero .fio { display: none; }
+  .hero::before, .hero::after { display: none; }
+
+  .dobra-m {
+    --W: min(290vw, 1600px);                 /* largura da foto: navio ocupa quase toda a tela */
+    --navio-y: 58svh;                        /* centro do navio (o script ajusta ao espaço livre) */
+    position: relative; isolation: isolate; overflow: hidden;
+    display: flex; flex-direction: column;
+    min-height: 100vh; min-height: 100svh;
+    padding-top: calc(18px + env(safe-area-inset-top, 0px));
+    padding-bottom: calc(22px + env(safe-area-inset-bottom, 0px));
+    padding-left: var(--lado-esq); padding-right: var(--lado-dir);
+    background-color: var(--mar-800);
+  }
+  /* foto: navio centralizado na horizontal e no espaço entre o texto e as informações */
+  .dobra-m::before {
+    content: ""; position: absolute; z-index: -2; inset: 0;
+    background: url("assets/fundo-navio-2560.jpg") no-repeat;
+    background-size: var(--W) auto;
+    background-position: calc(50vw - 0.265 * var(--W)) calc(var(--navio-y) - 0.3827 * var(--W));
+    filter: saturate(1.18) contrast(1.06) brightness(1.06);
+  }
+  /* véus: topo escuro para o título, centro limpo para o navio, base escura para as informações */
+  .dobra-m::after {
+    content: ""; position: absolute; z-index: -1; inset: 0;
+    background:
+      linear-gradient(180deg,
+        rgba(4, 25, 29, 0.82) 0%,
+        rgba(4, 25, 29, 0.5) calc(var(--navio-y) - 0.2 * var(--W)),
+        rgba(4, 25, 29, 0) calc(var(--navio-y) - 0.06 * var(--W)),
+        rgba(4, 25, 29, 0) calc(var(--navio-y) + 0.07 * var(--W)),
+        rgba(4, 25, 29, 0.8) calc(var(--navio-y) + 0.17 * var(--W)),
+        var(--mar-900) 100%);
+  }
+
+  /* logo com a mesma altura do selo; o selo segue centralizado na escrita "Corporate" (regra geral do .topo) */
+  .dobra-m .topo { display: flex; padding: 0; --logo-h: 30px; --selo-h: 30px; }
+  .dobra-m .topo .selo { padding-inline: 11px; letter-spacing: 0.14em; gap: 7px; }
+  .dobra-m .titulo { margin-top: clamp(44px, 7svh, 72px); font-size: clamp(1.9rem, 9vw, 3rem); line-height: 1.08; }
+  .dobra-m .subtitulo { margin-top: 20px; font-size: clamp(1.15rem, 5vw, 1.35rem); line-height: 1.42; max-width: 30em; text-shadow: 0 1px 12px rgba(0, 20, 24, 0.7); }
+
+  /* espaço livre onde o navio aparece */
+  .dobra-m .vao-navio { flex: 1 1 auto; min-height: 120px; }
+
+  .dobra-m .info { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 0; }
+  .dobra-m .info li { padding: 11px 12px; border-radius: 14px; background: rgba(4, 25, 29, 0.55); }
+  .dobra-m .info li small { font-size: 10px; letter-spacing: 0.18em; }
+  .dobra-m .info li b { font-size: 15px; }
+  .dobra-m .botao { margin-top: 12px; }
+  .dobra-m .botao svg { width: 16px; height: 16px; transform: rotate(90deg); }
+
+  /* 2ª parte: só o formulário */
+  .hero { min-height: 0; overflow: visible; background-color: var(--mar-900); }
+  .hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "form";
+    padding-block: 28px calc(40px + env(safe-area-inset-bottom, 0px));
+  }
+  .cartao { align-self: auto; scroll-margin-top: calc(12px + env(safe-area-inset-top, 0px)); }
+}
+
+@media (max-width: 600px) {
+  .topo .selo { padding: 7px 12px; font-size: 10.5px; letter-spacing: 0.2em; gap: 8px; }
+  .cartao { padding: 24px 18px 20px; border-radius: 22px; }
+  .cartao h2 { font-size: 1.55rem; }
+  .cartao .apoio { margin: 8px 0 18px; }
+  .botao { padding-inline: 16px; letter-spacing: 0.02em; }
+  .cartao .botao svg { display: none; }
+  .agenda-botoes { grid-template-columns: minmax(0, 1fr); }
+}
+/* telas baixas (ex.: iPhone SE): compacta para caber na dobra */
+@media (max-width: 960px) and (max-height: 700px) {
+  .dobra-m .titulo { margin-top: 36px; font-size: clamp(1.7rem, 8vw, 2.4rem); }
+  .dobra-m .subtitulo { margin-top: 14px; font-size: 1.08rem; }
+  .dobra-m .vao-navio { min-height: 96px; }
+}
+@media (max-width: 360px) {
+  .topo .selo { display: none; }
+  .dobra-m .info li { padding: 10px; }
+  .dobra-m .info li b { font-size: 14px; }
+}
+</style>
+</head>
+<body>
+
+<!-- 1ª dobra no celular/tablet (no desktop fica oculta e vale a composição do .hero) -->
+<section class="dobra-m" id="dobra-m" aria-labelledby="titulo-m">
+  <div class="topo">
+    <img class="logo" src="assets/wiz-corporate_principal_cor-fundo-escuro.svg" alt="Wiz Corporate" width="230" height="44">
+    <span class="selo rotulo">Webinar gratuito</span>
+  </div>
+  <h1 class="titulo" id="titulo-m">
+    <span class="leve">Quando um incêndio em alto-mar</span>
+    <span class="tarja-m">muda o destino de uma carga.</span>
+  </h1>
+  <p class="subtitulo">Entenda a <strong>avaria grossa</strong>, as garantias exigidas e impactos para empresas envolvidas no transporte marítimo do navio <strong class="navio">HMM PLATINUM</strong>.</p>
+
+  <div class="vao-navio" id="vao-navio" aria-hidden="true"></div>
+
+  <ul class="info" aria-label="Informações do webinar">
+    <li><small>Data</small><b>Terça, 24/11</b></li>
+    <li><small>Horário</small><b>10h</b></li>
+    <li><small>Onde</small><b>Ao vivo no YouTube</b></li>
+  </ul>
+  <a class="botao" id="botao-dobra" href="#inscricao">
+    <span id="botao-dobra-texto">Inscrever-se</span>
+    <svg viewBox="0 0 500 500" aria-hidden="true"><path d="M106.05,62.29l302.79,174.82c9.93,5.73,9.93,20.06,0,25.79L106.05,437.71c-9.93,5.73-22.34-1.43-22.34-12.9V75.18c0-11.46,12.41-18.63,22.34-12.9Z"/></svg>
+  </a>
+</section>
+
+<header class="hero">
+  <svg class="fio" viewBox="0 0 500 500" aria-hidden="true"><path d="M62.29,393.95L237.1,91.16c5.73-9.93,20.06-9.93,25.79,0l174.82,302.79c5.73,9.93-1.43,22.34-12.9,22.34H75.18c-11.46,0-18.63-12.41-12.9-22.34Z"/></svg>
+
+  <div class="wrap topo">
+    <img class="logo" src="assets/wiz-corporate_principal_cor-fundo-escuro.svg" alt="Wiz Corporate" width="230" height="44">
+    <span class="selo rotulo">Webinar gratuito</span>
+  </div>
+
+  <div class="wrap hero-grid">
+    <div class="hero-texto">
+      <h1 class="titulo">
+        <span class="leve">Quando um incêndio em alto-mar</span>
+        <span class="tarja-m">muda o destino de uma carga.</span>
+      </h1>
+      <p class="subtitulo">Entenda a <strong>avaria grossa</strong>, as garantias exigidas e impactos para empresas envolvidas no transporte marítimo do navio <strong class="navio">HMM PLATINUM</strong>.</p>
+
+      <ul class="info" aria-label="Informações do webinar">
+        <li><small>Data</small><b>Terça, 24/11</b></li>
+        <li><small>Horário</small><b>10h<span class="fuso"> (Brasília)</span></b></li>
+        <li><small>Onde</small><b>Ao vivo no YouTube</b></li>
+      </ul>
+    </div>
+
+    <div class="hero-navio" aria-hidden="true"></div>
+
+    <section class="cartao" id="inscricao" aria-labelledby="form-titulo">
+      <div id="form-area">
+        <h2 id="form-titulo">Inscreva-se <b>gratuitamente</b></h2>
+        <p class="apoio">Ao concluir, você recebe o link da transmissão.</p>
+
+        <!-- Formulário da RD Station (conversão: webinar-logistica) -->
+        <div role="main" id="webinar-logistica-94a4452a842d8c26f3e5" class="rd-form"></div>
+      </div>
+
+      <div class="sucesso" id="sucesso" hidden tabindex="-1">
+        <svg class="marca" viewBox="0 0 500 500" aria-hidden="true"><path d="M62.29,393.95L237.1,91.16c5.73-9.93,20.06-9.93,25.79,0l174.82,302.79c5.73,9.93-1.43,22.34-12.9,22.34H75.18c-11.46,0-18.63-12.41-12.9-22.34Z"/></svg>
+        <h2>Inscrição <b>confirmada</b></h2>
+        <p><span id="sucesso-saudacao">Obrigado!</span> Te esperamos na <strong>terça, 24/11, às 10h</strong> (horário de Brasília), ao vivo no YouTube.</p>
+
+        <div class="transmissao">
+          <p class="rotulo">Link da transmissão</p>
+          <div id="link-pronto" hidden>
+            <a class="botao" id="link-youtube" href="#" target="_blank" rel="noopener">
+              Assistir no YouTube
+              <svg viewBox="0 0 500 500" aria-hidden="true"><path d="M106.05,62.29l302.79,174.82c9.93,5.73,9.93,20.06,0,25.79L106.05,437.71c-9.93,5.73-22.34-1.43-22.34-12.9V75.18c0-11.46,12.41-18.63,22.34-12.9Z"/></svg>
+            </a>
+            <span class="link-texto" id="link-texto"></span>
+          </div>
+          <p class="em-breve" id="link-em-breve">O link será <b>liberado nesta página</b> e enviado para o seu e-mail antes do evento.</p>
+        </div>
+
+        <div class="agenda">
+          <p class="rotulo">Salvar na agenda</p>
+          <div class="agenda-botoes">
+            <a class="botao-sec" id="agenda-google" href="#" target="_blank" rel="noopener">Google Agenda</a>
+            <button class="botao-sec" id="agenda-ics" type="button">Outlook / iPhone</button>
+          </div>
+        </div>
+
+        <button class="outra-inscricao" id="outra-inscricao" type="button">Inscrever outra pessoa</button>
+      </div>
+    </section>
+  </div>
+</header>
+
+<script type="text/javascript" src="https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js"></script>
+<script type="text/javascript"> new RDStationForms('webinar-logistica-94a4452a842d8c26f3e5', 'null').createForm();</script>
+<script>
+/* =====================================================================
+   CONFIGURAÇÃO — edite aqui
+   ---------------------------------------------------------------------
+   O formulário é o da RD Station (id webinar-logistica-94a4452a842d8c26f3e5),
+   carregado logo acima. Campos, validação e envio são definidos na RD.
+   youtubeUrl: link da live, mostrado na confirmação depois da inscrição.
+   ===================================================================== */
+var CONFIG = {
+  rdFormId: "webinar-logistica-94a4452a842d8c26f3e5",
+  youtubeUrl: "https://www.youtube.com/live/wJ-d0rtqc2Y",
+  evento: {
+    titulo: "Webinar Wiz Corporate | HMM PLATINUM: avaria grossa e seguro de transporte",
+    inicioUTC: "20261124T130000Z",                  // 24/11/2026, 10h (Brasília)
+    fimUTC: "20261124T143000Z"                      // 11h30 (Brasília) — ajuste se a duração mudar
+  }
+};
+
+(function () {
+  var CHAVE = "wiz-webinar-hmm-platinum";
+
+  var formArea = document.getElementById("form-area");
+  var sucesso = document.getElementById("sucesso");
+  var cartao = document.getElementById("inscricao");
+  var rdBox = document.getElementById(CONFIG.rdFormId);
+
+  /* ---- Link da transmissão e agenda ---- */
+  var detalhes = "Webinar gratuito da Wiz Corporate sobre o caso HMM PLATINUM: avaria grossa, garantias exigidas e o papel do seguro de transporte." +
+    (CONFIG.youtubeUrl ? "\n\nTransmissão: " + CONFIG.youtubeUrl : "\n\nO link da transmissão no YouTube será enviado por e-mail.");
+  var local = CONFIG.youtubeUrl || "YouTube (link enviado por e-mail)";
+
+  if (CONFIG.youtubeUrl) {
+    document.getElementById("link-youtube").href = CONFIG.youtubeUrl;
+    document.getElementById("link-texto").textContent = CONFIG.youtubeUrl.replace(/^https?:\/\/(www\.)?/, "");
+    document.getElementById("link-pronto").hidden = false;
+    document.getElementById("link-em-breve").hidden = true;
+  }
+
+  document.getElementById("agenda-google").href = "https://calendar.google.com/calendar/render?action=TEMPLATE" +
+    "&text=" + encodeURIComponent(CONFIG.evento.titulo) +
+    "&dates=" + CONFIG.evento.inicioUTC + "/" + CONFIG.evento.fimUTC +
+    "&details=" + encodeURIComponent(detalhes) +
+    "&location=" + encodeURIComponent(local);
+
+  document.getElementById("agenda-ics").addEventListener("click", function () {
+    function esc(s) { return s.replace(/\\/g, "\\\\").replace(/\n/g, "\\n").replace(/,/g, "\\,").replace(/;/g, "\\;"); }
+    var ics = [
+      "BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Wiz Corporate//Webinar//PT", "METHOD:PUBLISH",
+      "BEGIN:VEVENT",
+      "UID:webinar-hmm-platinum-20261124@wizcorporate",
+      "DTSTAMP:" + new Date().toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, ""),
+      "DTSTART:" + CONFIG.evento.inicioUTC,
+      "DTEND:" + CONFIG.evento.fimUTC,
+      "SUMMARY:" + esc(CONFIG.evento.titulo),
+      "DESCRIPTION:" + esc(detalhes),
+      "LOCATION:" + esc(local),
+      CONFIG.youtubeUrl ? "URL:" + CONFIG.youtubeUrl : "",
+      "BEGIN:VALARM", "TRIGGER:-PT30M", "ACTION:DISPLAY", "DESCRIPTION:Webinar Wiz Corporate em 30 minutos", "END:VALARM",
+      "END:VEVENT", "END:VCALENDAR"
+    ].filter(Boolean).join("\r\n");
+    var url = URL.createObjectURL(new Blob([ics], { type: "text/calendar;charset=utf-8" }));
+    var a = document.createElement("a");
+    a.href = url; a.download = "webinar-wiz-corporate-24-11.ics";
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function () { URL.revokeObjectURL(url); }, 2000);
+  });
+
+  /* ---- Celular: posiciona o navio da foto no espaço livre da 1ª dobra ---- */
+  var dobra = document.getElementById("dobra-m");
+  var vao = document.getElementById("vao-navio");
+  function posicionarNavio() {
+    if (!vao.offsetHeight) return; // desktop: dobra oculta
+    dobra.style.setProperty("--navio-y", (vao.offsetTop + vao.offsetHeight / 2) + "px");
+  }
+  posicionarNavio();
+  window.addEventListener("resize", posicionarNavio);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(posicionarNavio);
+
+  /* ---- Estados ---- */
+  var inscrito = false;
+  function atualizarBotaoDobra() {
+    document.getElementById("botao-dobra-texto").textContent = inscrito ? "Ver minha inscrição" : "Inscrever-se";
+  }
+  function mostrarSucesso(nome, rolar) {
+    if (inscrito && !rolar) return;
+    inscrito = true; atualizarBotaoDobra();
+    document.getElementById("sucesso-saudacao").textContent = nome ? "Obrigado, " + nome + "!" : "Obrigado!";
+    formArea.hidden = true;
+    sucesso.hidden = false;
+    if (rolar) {
+      cartao.scrollIntoView({ behavior: "smooth", block: "start" });
+      sucesso.focus({ preventScroll: true });
+    }
+  }
+  function mostrarFormulario() {
+    try { localStorage.removeItem(CHAVE); } catch (e) {}
+    // recarrega para a RD montar um formulário limpo
+    location.href = location.pathname + location.search + "#inscricao";
+    location.reload();
+  }
+  document.getElementById("outra-inscricao").addEventListener("click", mostrarFormulario);
+
+  // Quem já se inscreveu neste aparelho volta direto para a confirmação (e o link)
+  try {
+    var salvo = JSON.parse(localStorage.getItem(CHAVE) || "null");
+    if (salvo && salvo.ok) mostrarSucesso(salvo.nome, false);
+  } catch (e) {}
+
+  // Retorno da RD: se o formulário estiver configurado para redirecionar para
+  // esta página com ?inscrito=1, mostra a confirmação com o link da live.
+  if (/[?&]inscrito=1\b/.test(location.search)) {
+    try { localStorage.setItem(CHAVE, JSON.stringify({ ok: true, nome: "" })); } catch (e) {}
+    mostrarSucesso("", true);
+  }
+
+  /* ---- Formulário da RD: detecta a conversão concluída ----
+     Guarda o primeiro nome ao enviar e, quando a RD troca o formulário pela
+     mensagem de sucesso, mostra a nossa confirmação com o link da live. */
+  var nomeEnviado = "", enviou = false;
+  rdBox.addEventListener("submit", function (e) {
+    var campoNome = e.target.querySelector('input[name="cf_nome_completo"], input[name="name"]');
+    if (e.target.checkValidity && !e.target.checkValidity()) return; // campos inválidos: a RD não envia
+    nomeEnviado = campoNome && campoNome.value ? campoNome.value.trim().split(/\s+/)[0] : "";
+    enviou = true;
+  }, true);
+
+  // A RD envia por AJAX (jQuery): resposta de sucesso do envio = inscrição concluída
+  window.addEventListener("load", function () {
+    if (window.jQuery && jQuery(document).ajaxSuccess) {
+      jQuery(document).ajaxSuccess(function (ev, xhr, opcoes) {
+        if (enviou && !inscrito && opcoes && /rdstation|conversions/i.test(opcoes.url || "")) conversaoConcluida();
+      });
+    }
+  });
+
+  function conversaoConcluida() {
+    if (inscrito) return;
+    try { localStorage.setItem(CHAVE, JSON.stringify({ ok: true, nome: nomeEnviado })); } catch (e) {}
+    mostrarSucesso(nomeEnviado, true);
+    if (window.dataLayer) window.dataLayer.push({ event: "inscricao_webinar", conversion: "webinar-logistica" });
+  }
+
+  // Texto do botão da RD ("Cadastrar") no padrão da página
+  function ajustarBotaoRD() {
+    var b = rdBox.querySelector('button[type="submit"], .rd-button');
+    if (b && !enviou && b.textContent.trim() !== "Garantir minha vaga") b.textContent = "Garantir minha vaga";
+  }
+  ajustarBotaoRD();
+
+  new MutationObserver(function () {
+    ajustarBotaoRD();
+    if (!enviou || inscrito) return;
+    var form = rdBox.querySelector("form");
+    var formVisivel = form && form.offsetParent !== null;
+    var msgSucesso = rdBox.querySelector('[class*="success"], [class*="sucesso"], [id*="success"]');
+    if (!formVisivel || (msgSucesso && msgSucesso.offsetParent !== null)) conversaoConcluida();
+  }).observe(rdBox, { childList: true, subtree: true, attributes: true, attributeFilter: ["style", "class"] });
+})();
+</script>
+</body>
+</html>
