@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Webinar HMM Platinum | Wiz Corporate</title>
-<meta name="description" content="Webinar gratuito da Wiz Corporate, 24/11 às 10h: avaria grossa, garantias exigidas e o papel do seguro de transporte no caso do incêndio a bordo do HMM PLATINUM.">
+<meta name="description" content="Webinar gratuito da Wiz Corporate, 03/12 às 10h: avaria grossa, garantias exigidas e o papel do seguro de transporte no caso do incêndio a bordo do HMM PLATINUM.">
 <meta property="og:title" content="HMM PLATINUM: quando um incêndio em alto-mar muda o destino de uma carga">
-<meta property="og:description" content="Webinar gratuito, 24/11 às 10h, ao vivo no YouTube. Entenda a avaria grossa, as garantias exigidas e os impactos para empresas do transporte marítimo.">
+<meta property="og:description" content="Webinar gratuito, 03/12 às 10h, ao vivo no YouTube. Entenda a avaria grossa, as garantias exigidas e os impactos para empresas do transporte marítimo.">
 <!-- Compartilhamento nas redes: endereços completos da página publicada (se a página mudar de endereço, atualize aqui) -->
 <link rel="canonical" href="https://mktwizcorporate.com.br/webinar-logistica/">
 <meta property="og:url" content="https://mktwizcorporate.com.br/webinar-logistica/">
@@ -439,7 +439,7 @@ h1.titulo .tarja-m {
   <div class="vao-navio" id="vao-navio" aria-hidden="true"></div>
 
   <ul class="info" aria-label="Informações do webinar">
-    <li><small>Data</small><b>Terça, 24/11</b></li>
+    <li><small>Data</small><b>Quinta, 03/12</b></li>
     <li><small>Horário</small><b>10h</b></li>
     <li><small>Onde</small><b>Ao vivo no YouTube</b></li>
   </ul>
@@ -466,7 +466,7 @@ h1.titulo .tarja-m {
       <p class="subtitulo">Entenda a <strong>avaria grossa</strong>, as garantias exigidas e impactos para empresas envolvidas no transporte marítimo do navio <strong class="navio">HMM PLATINUM</strong>.</p>
 
       <ul class="info" aria-label="Informações do webinar">
-        <li><small>Data</small><b>Terça, 24/11</b></li>
+        <li><small>Data</small><b>Quinta, 03/12</b></li>
         <li><small>Horário</small><b>10h<span class="fuso"> (Brasília)</span></b></li>
         <li><small>Onde</small><b>Ao vivo no YouTube</b></li>
       </ul>
@@ -486,7 +486,7 @@ h1.titulo .tarja-m {
       <div class="sucesso" id="sucesso" hidden tabindex="-1">
         <svg class="marca" viewBox="0 0 500 500" aria-hidden="true"><path d="M62.29,393.95L237.1,91.16c5.73-9.93,20.06-9.93,25.79,0l174.82,302.79c5.73,9.93-1.43,22.34-12.9,22.34H75.18c-11.46,0-18.63-12.41-12.9-22.34Z"/></svg>
         <h2>Inscrição <b>confirmada</b></h2>
-        <p><span id="sucesso-saudacao">Obrigado!</span> Te esperamos na <strong>terça, 24/11, às 10h</strong> (horário de Brasília), ao vivo no YouTube.</p>
+        <p><span id="sucesso-saudacao">Obrigado!</span> Te esperamos na <strong>quinta, 03/12, às 10h</strong> (horário de Brasília), ao vivo no YouTube.</p>
 
         <div class="transmissao">
           <p class="rotulo">Link da transmissão</p>
@@ -529,8 +529,8 @@ var CONFIG = {
   youtubeUrl: "https://www.youtube.com/live/OVaRw5JqBF4",
   evento: {
     titulo: "Webinar Wiz Corporate | HMM PLATINUM: avaria grossa e seguro de transporte",
-    inicioUTC: "20261124T130000Z",                  // 24/11/2026, 10h (Brasília)
-    fimUTC: "20261124T143000Z"                      // 11h30 (Brasília) — ajuste se a duração mudar
+    inicioUTC: "20261203T130000Z",                  // 03/12/2026, 10h (Brasília)
+    fimUTC: "20261203T143000Z"                      // 11h30 (Brasília) — ajuste se a duração mudar
   }
 };
 
@@ -565,7 +565,7 @@ var CONFIG = {
     var ics = [
       "BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Wiz Corporate//Webinar//PT", "METHOD:PUBLISH",
       "BEGIN:VEVENT",
-      "UID:webinar-hmm-platinum-20261124@wizcorporate",
+      "UID:webinar-hmm-platinum-20261203@wizcorporate",
       "DTSTAMP:" + new Date().toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, ""),
       "DTSTART:" + CONFIG.evento.inicioUTC,
       "DTEND:" + CONFIG.evento.fimUTC,
@@ -578,7 +578,7 @@ var CONFIG = {
     ].filter(Boolean).join("\r\n");
     var url = URL.createObjectURL(new Blob([ics], { type: "text/calendar;charset=utf-8" }));
     var a = document.createElement("a");
-    a.href = url; a.download = "webinar-wiz-corporate-24-11.ics";
+    a.href = url; a.download = "webinar-wiz-corporate-03-12.ics";
     document.body.appendChild(a); a.click(); a.remove();
     setTimeout(function () { URL.revokeObjectURL(url); }, 2000);
   });
